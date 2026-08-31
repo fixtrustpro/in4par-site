@@ -675,4 +675,15 @@ header .mk, header .tb { color:inherit }
   .tb      { font-size:14px !important; padding:9px 8px }
   .navcta  { font-size:14px !important }
 }
+
+/* .bd hardcoded rgba(11,22,54,.55) — dark navy, renders slate-grey on white */
+.bd{ background:#FBF8F1 !important; border-top:1px solid var(--line) }
+
+/* My own bug: the blunt `section span` rule below was crushing spans INSIDE
+   headings from 54px down to 17px. Headings must be exempt. */
+h1 span, h2 span, h3 span, h4 span,
+.anton span, .mk span, .k, .four, .sep { font-size:inherit !important }
+h2 span.g, h1 span.g, h3 span.g { font-size:inherit !important; color:var(--gold) !important }
+.mk span{ font-size:12px !important }
+@media (max-width:640px){ .mk span{ font-size:11px !important } }
 </style>
