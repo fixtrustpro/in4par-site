@@ -423,7 +423,9 @@ p.lead          { font-size:1.24rem; line-height:1.68 }
 p.tagline       { font-size:17px !important }
 .ticklabel      { font-size:15px !important }
 p.ckick         { font-size:16px !important }
-figure span, section span:not(.sep):not(.four){ font-size:17px !important }
+/* narrowed: the old `section span` form outranked every heading exemption
+   on specificity and was crushing 54px headline spans to 17px */
+figure span, section p span, .cred span, .fine span{ font-size:17px !important }
 
 @media (max-width:640px){
   body          { font-size:19px }
