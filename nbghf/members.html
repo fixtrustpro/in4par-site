@@ -423,3 +423,72 @@ document.querySelectorAll('.rv').forEach(el=>el.classList.add('on'));
   nav a, .nav a         { font-size:15px !important }
 }
 </style>
+
+<style>
+/* ── Light theme ─────────────────────────────────────────────────────────
+   Requested by John Simpson, Aug 31 2026: white/cream ground with dark text,
+   for continuity with blackgolfhof.org. Verified: that site's body IS white
+   with black text and only the hero is a black band, so this mirrors it.
+   The <header> hero stays dark on purpose, exactly as theirs does.
+   Type is also raised throughout — his note was that small text is hard to
+   read, and this audience skews older. */
+:root{
+  --ink:#FFFFFF;          /* was darkest background */
+  --deep:#F7F3E8;
+  --panel:#FFFFFF;
+  --panel2:#F1EADA;
+  --cream:#1B1F29;        /* was light text, now dark */
+  --white:#0A0D14;
+  --dim:#586074;
+  --gold:#8A6A1F;
+  --gold-lt:#A98330;
+  --gold-pale:#6E5417;
+  --line:rgba(27,31,41,.18);
+}
+body{background:var(--ink);color:var(--cream)}
+
+/* panels that hardcoded the dark navy */
+.t          { background:#FBF8F1 !important; border-color:var(--line) !important }
+.t.hot      { background:linear-gradient(160deg,rgba(138,106,31,.10),#FBF8F1) !important }
+.hmc        { background:#FBF8F1 !important }
+.corridor   { background:linear-gradient(160deg,rgba(138,106,31,.10),#FBF8F1) !important }
+.pn         { background:linear-gradient(160deg,#FBF8F1,#F3ECDC) !important }
+.tickwrap   { background:#F1EADA !important }
+.montage    { background:#FFFFFF !important }
+.deep       { background:linear-gradient(180deg,#F7F3E8,#FFFFFF) !important }
+.mtoggle    { background:rgba(255,255,255,.86) !important; color:#1B1F29 !important;
+              border-color:var(--line) !important }
+.strip      { color:#FFFBF2 !important }
+.b-gold     { color:#FFFBF2 !important }
+.badge      { color:#FFFBF2 !important }
+
+/* the hero band stays dark, the way blackgolfhof.org does it */
+header, header * { --cream:#EFE9D8; --white:#FFFBF2; --dim:#93A2BC;
+                   --gold:#C79A4B; --gold-lt:#E4C67E; --gold-pale:#F6E7BD;
+                   --line:rgba(199,154,75,.24) }
+header .b-gold { color:#0A0D14 !important }
+header .mtoggle{ background:rgba(5,7,15,.7) !important; color:#EFE9D8 !important }
+
+/* ── Readability. Nothing meaningful below 16px anywhere. ── */
+body            { font-size:20px; line-height:1.72 }
+p, li, td       { font-size:1.05rem; line-height:1.75 }
+p.lead          { font-size:1.24rem; line-height:1.68 }
+.k, p.kicker    { font-size:16px !important; letter-spacing:.2em }
+.hmc .hk        { font-size:17px !important; line-height:1.55 }
+.cred, .fine    { font-size:16px !important; line-height:1.8 }
+.tabs .tb       { font-size:16px !important }
+.ticktrack a    { font-size:17px !important }
+.btn            { font-size:17px !important }
+p.tagline       { font-size:17px !important }
+.ticklabel      { font-size:15px !important }
+p.ckick         { font-size:16px !important }
+figure span, section span:not(.sep):not(.four){ font-size:17px !important }
+
+@media (max-width:640px){
+  body          { font-size:19px }
+  p, li, td     { font-size:1.06rem }
+  .k, p.kicker  { font-size:16px !important }
+  .btn          { font-size:17px !important }
+  .tabs .tb     { font-size:16px !important }
+}
+</style>
