@@ -432,4 +432,22 @@ figure span, section span:not(.sep):not(.four){ font-size:17px !important }
   .btn          { font-size:17px !important }
   .tabs .tb     { font-size:16px !important }
 }
+
+/* The nav is position:fixed and transparent, so it crosses both the dark hero and
+   the light body. blackgolfhof.org solves this with a solid white bar above a black
+   hero, so this does the same. Also sized up: it was 13px and 9.5px. */
+#nav{ background:#FFFFFF !important; border-bottom:1px solid var(--line);
+      box-shadow:0 1px 14px rgba(20,24,31,.07) }
+.mk        { color:#0A0D14 !important; font-size:16px !important; letter-spacing:.16em }
+.mk span   { color:#8A6A1F !important; font-size:12px !important; letter-spacing:.22em }
+.tb        { color:#2A303C !important; font-size:15px !important; opacity:1 }
+.tb:hover,
+.tb.on     { color:#8A6A1F !important }
+.navcta    { color:#FFFBF2 !important; font-size:15px !important }
+header .mk, header .tb { color:inherit }
+@media (max-width:640px){
+  .mk      { font-size:14px !important } .mk span{ font-size:11px !important }
+  .tb      { font-size:14px !important; padding:9px 8px }
+  .navcta  { font-size:14px !important }
+}
 </style>
