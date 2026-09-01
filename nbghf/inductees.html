@@ -540,4 +540,10 @@ button.mtoggle { font-size:13px !important }
   .c120bandwhen{ font-size:15px } .c120bandsub{ font-size:14px }
   .c120bandcta{ width:100%; text-align:center; font-size:15px }
 }
+
+/* the nav is position:fixed at 81px tall, so the band was sitting underneath it */
+.c120band{ margin-top:81px }
+@media (max-width:640px){ .c120band{ margin-top:74px } }
+/* the first section allowed 168px for a nav that is now followed by the band */
+.c120band + section, .c120band ~ section:first-of-type{ padding-top:52px !important }
 </style>
