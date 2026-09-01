@@ -877,3 +877,25 @@ body > #home{ order:10 }
 body > #give{ order:11 }
 body > footer{ order:12 }
 </style>
+
+<style>
+/* Balance the lockup: the crests were small against a tall two-line type block,
+   leaving the NBGHF mark orphaned. Bigger crests, tighter gap, and a soft light
+   halo behind the NBGHF crest whose outer ring is dark and was losing itself. */
+.c120mark{ gap:clamp(16px,2.2vw,26px); align-items:center }
+.c120mark .cr{ height:clamp(74px,10.6vw,146px) }
+.c120mark .cr:last-child{
+  filter:drop-shadow(0 0 14px rgba(244,239,225,.30)) drop-shadow(0 6px 18px rgba(0,0,0,.55)) }
+.c120type{ line-height:.86 }
+.c120word{ font-size:clamp(20px,3.25vw,41px); letter-spacing:.13em }
+.c120num { font-size:clamp(56px,10.8vw,138px) }
+.c120strap{ margin-top:2px }
+@media (max-width:760px){
+  .c120mark .cr{ height:64px }
+  .c120mark{ gap:12px }
+}
+@media (max-width:430px){
+  .c120mark .cr{ height:50px }
+  .c120num{ font-size:50px } .c120word{ font-size:18px }
+}
+</style>
