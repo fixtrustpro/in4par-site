@@ -921,3 +921,41 @@ body > footer{ order:12 }
 .jawspec span{ display:block; margin-top:5px; font-size:16px; line-height:1.5; color:var(--dim) }
 .jawlist{ font-size:1.02rem; line-height:1.7; max-width:46rem }
 </style>
+
+<style>
+/* ── Photograph sections run dark ────────────────────────────────────────
+   Ian, Aug 31: the archival portraits are of brown-skinned men, and on the
+   cream ground the exterior brightness flattens the faces and kills the
+   definition. Every section carrying photographs now runs on dark, where the
+   tonal range in those pictures actually reads. The hero is exempt: it is
+   already black and white on dark. Text inverts with the ground. */
+#founders, .montage, #record, #story{
+  --ink:#0B1636; --deep:#0A1026; --panel:#101A3C; --panel2:#152246;
+  --cream:#EFE9D8; --white:#FFFBF2; --dim:#9AA8C2;
+  --gold:#C79A4B; --gold-lt:#E4C67E; --gold-pale:#F6E7BD;
+  --line:rgba(199,154,75,.26);
+  background:linear-gradient(180deg,#0B1636 0%,#080E22 100%) !important;
+  color:var(--cream) !important;
+}
+#founders h2, .montage h2, #record h2, #story h2,
+#founders h1, #story h1, #founders h3, #record h3{ color:#FFFBF2 !important }
+#founders .g, .montage .g, #record .g, #story .g{ color:#E4C67E !important }
+#founders p, .montage p, #record p, #story p,
+#founders li, #record li, #founders span, #record span{ color:#E2DCCB !important }
+#founders .kicker, .montage .kicker, #record .kicker, #story .kicker,
+#founders .tagline, #story .tagline{ color:#C79A4B !important }
+
+/* panels inside them go back to dark */
+#founders .bd{ background:rgba(11,22,54,.62) !important; border-top:1px solid rgba(199,154,75,.26) }
+#record .t, #record .hmc, #founders .hmc{ background:rgba(11,22,54,.55) !important }
+#founders .pl, #record .pl{ background:#0A1026 !important }
+
+/* photographs get a touch more presence against the dark */
+#founders img, .montage img, #record img, #story img{
+  filter:contrast(1.06) brightness(1.04) saturate(1.02) }
+
+/* buttons stay legible on dark */
+#founders .btn.b-line, .montage .btn.b-line, #record .btn.b-line, #story .btn.b-line{
+  color:#EFE9D8 !important; border-color:rgba(199,154,75,.6) !important }
+#founders .btn.b-gold, #record .btn.b-gold, #story .btn.b-gold{ color:#0A0D14 !important }
+</style>
