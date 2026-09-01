@@ -785,3 +785,28 @@ header{ align-items:flex-start !important }
            box-shadow:0 12px 34px rgba(0,0,0,.45); border:1px solid rgba(198,160,82,.5) }
 @media (max-width:640px){ .c120lock{ padding:12px 14px } }
 </style>
+
+<style>
+/* ── Running order ───────────────────────────────────────────────────────
+   John Simpson, Aug 31: "Celebration120 is the lead dog and all other content
+   is a subset. REGISTRATION CALL TO ACTION IS TOP PRIORITY."
+   The page previously ran hero → Record → Montage → Founders → New Home →
+   Event → Register, so a visitor met four history sections before reaching
+   the thing they are meant to register for. Event and Register now come
+   straight after the hero; the history follows and supports them.
+   Done with flex order rather than moving markup, so nothing can break. */
+body{ display:flex; flex-direction:column }
+body > nav        { order:0 }
+body > header     { order:1 }
+body > .tickwrap  { order:2 }
+body > #event     { order:3 }
+body > #register  { order:4 }
+body > .strip     { order:5 }
+body > #record    { order:6 }
+body > .montage   { order:7 }
+body > #founders  { order:8 }
+body > #home      { order:9 }
+body > #give      { order:10 }
+body > footer     { order:11 }
+body > script, body > style { order:12 }
+</style>
