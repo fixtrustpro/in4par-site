@@ -306,3 +306,16 @@ document.getElementById('reg').addEventListener('submit',function(ev){
     '&body='+encodeURIComponent(body);
 });
 </script>
+
+<style>
+/* The Clearview crest inside the lockup is navy on transparent. On a dark ground
+   it is navy-on-navy and vanishes entirely — the course is called Clearview and
+   you could not see it. The NBGHF crest survives because it has a cream interior.
+   Anywhere the lockup sits on dark, it now sits on a cream plaque. */
+header.top img, .hero img[alt^="Celebration 120"], .mast img[alt^="Celebration 120"],
+img[alt^="Celebration 120"]{
+  background:#FBF8F1; padding:14px 20px;
+  border:1px solid rgba(198,160,82,.55);
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+</style>
