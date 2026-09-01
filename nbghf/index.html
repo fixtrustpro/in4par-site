@@ -770,4 +770,12 @@ button.mtoggle { font-size:13px !important }
 .hero-in{ padding-top:118px }
 @media (max-width:900px){ .hero-in{ padding-top:104px } }
 @media (max-width:640px){ .hero-in{ padding-top:92px } }
+
+/* The header is flex with align-items:flex-end and min-height:680px. The hero
+   content is now 1015px tall, so it was overflowing UPWARD and pushing the
+   Celebration 120 lockup to -211px, behind the nav. Top-align and let it grow. */
+header{ align-items:flex-start !important }
+.hero-in{ padding-top:118px; padding-bottom:60px }
+@media (max-width:900px){ .hero-in{ padding-top:104px; padding-bottom:48px } }
+@media (max-width:640px){ .hero-in{ padding-top:92px;  padding-bottom:40px } }
 </style>
