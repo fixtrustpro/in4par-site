@@ -188,7 +188,7 @@ footer a{color:#E6CF95}
   <p class="kick">Step One</p>
   <h2>Tell us what you want, <span class="g">and we&rsquo;ll take it from there.</span></h2>
   <p class="lead">One form. John Simpson confirms your place and sends payment instructions the
-  same day. Members of the Hall and of the LPGA take 50 percent off entries and journal ads.</p>
+  same day. Players get a swag bag, so we need a shirt size. Members of the Hall and of the LPGA take 50 percent off entries and journal ads.</p>
 
   <form class="form" id="reg">
     <div class="row">
@@ -218,7 +218,22 @@ footer a{color:#E6CF95}
     </select>
     <div class="row">
       <div><label for="q">How many</label><input id="q" name="q" type="number" min="1" value="1"></div>
+      <div><label for="sz">Shirt size</label>
+        <select id="sz" name="sz">
+          <option value="">Select a size</option>
+          <option>Small</option>
+          <option>Medium</option>
+          <option>Large</option>
+          <option>X-Large</option>
+          <option>2X-Large</option>
+          <option>3X-Large</option>
+          <option>Not playing, no shirt needed</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
       <div><label for="d">Discount code <span style="text-transform:none;letter-spacing:0">(if you have one)</span></label><input id="d" name="d"></div>
+      <div><label for="sz2">Sizes for the rest of your group <span style="text-transform:none;letter-spacing:0">(optional)</span></label><input id="sz2" name="sz2" placeholder="e.g. 2 x Large, 1 x XL"></div>
     </div>
     <label for="m">Anything we should know</label>
     <textarea id="m" name="m" placeholder="Names of your foursome, dietary needs, ad artwork questions, anything at all."></textarea>
@@ -312,6 +327,8 @@ document.getElementById('reg').addEventListener('submit',function(ev){
     'Mobile: '+v('p')+'\n\n'+
     'Registering for: '+v('w')+'\n'+
     'How many: '+v('q')+'\n'+
+    'Shirt size: '+(v('sz')||'not given')+'\n'+
+    'Sizes for the group: '+(v('sz2')||'—')+'\n'+
     'Discount code: '+(v('d')||'none')+'\n\n'+
     'Notes:\n'+(v('m')||'—')+'\n';
   window.location.href='mailto:jsimpson@blackgolfhof.org'+
