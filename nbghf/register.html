@@ -104,6 +104,53 @@ footer a{color:#E6CF95}
   header.top{padding:32px 18px 40px}
   .cta{display:block;margin:14px 0 0}
 }
+
+/* ---- added: countdown ---- */
+.cdown{margin:30px auto 0;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.cdown div{min-width:74px;padding:11px 8px 9px;border:1px solid rgba(230,207,149,.42);
+  background:rgba(0,0,0,.18)}
+.cdown b{display:block;font-family:Anton,sans-serif;font-size:29px;line-height:1;color:#E6CF95;
+  font-variant-numeric:tabular-nums}
+.cdown span{display:block;margin-top:5px;font-size:10.5px;letter-spacing:.17em;
+  text-transform:uppercase;color:#C9C4B4}
+@media(max-width:640px){.cdown div{min-width:64px}.cdown b{font-size:24px}}
+
+/* ---- added: availability badges on the option cards ---- */
+.opt{position:relative}
+.badge{display:inline-block;margin:0 0 9px;padding:4px 10px;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;font-weight:700}
+.badge.one{background:#FBF6E8;color:#8A6A1F;border:1px solid rgba(138,106,31,.45)}
+.badge.gone{background:#EFEFEF;color:#6B6B6B;border:1px solid #D8D8D8}
+.opt.taken{opacity:.62}
+.opt.taken .price{text-decoration:line-through;text-decoration-thickness:1px}
+
+/* ---- added: running total + player capture ---- */
+.tot{margin:22px 0 0;padding:16px 18px;border:1px solid var(--gold);background:#FBF6E8;
+  display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.tot .lab{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A6A1F}
+.tot .amt{font-family:Anton,sans-serif;font-size:31px;color:var(--ink);line-height:1;
+  font-variant-numeric:tabular-nums}
+.tot .sub{flex-basis:100%;font-size:.95rem;color:#5A5F6E;margin:0}
+.players{margin:22px 0 0;padding:18px;border:1px dashed var(--line);background:#fff;display:none}
+.players.on{display:block}
+.players h4{font-family:Anton,sans-serif;font-size:16px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink);margin:0 0 4px}
+.players .why{font-size:.95rem;color:#5A5F6E;margin:0 0 16px;line-height:1.55}
+.pl{margin:0 0 14px;padding:0 0 14px;border-bottom:1px solid var(--line)}
+.pl:last-child{border-bottom:0;padding-bottom:0;margin-bottom:0}
+.pl .who{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A6A1F;
+  margin:0 0 9px;font-weight:700}
+.bigpay{margin:20px 0 0;padding:17px 19px;border-left:3px solid var(--gold);background:#FBF6E8;
+  display:none}
+.bigpay.on{display:block}
+.bigpay p{margin:0;font-size:1rem;line-height:1.6;color:#3D4353}
+
+/* ---- added: donation presets ---- */
+.amts{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0 0}
+.amts a{display:inline-block;padding:9px 15px;border:1px solid var(--line);background:#fff;
+  text-decoration:none;color:var(--ink);font-weight:700;font-size:.98rem}
+.amts a:hover{border-color:var(--gold);background:var(--cream)}
+.amts a.any{border-style:dashed}
 </style>
 
 <nav><div class="in">
@@ -122,6 +169,14 @@ footer a{color:#E6CF95}
   <b>120 years of continuous service</b> to golf&rsquo;s Black community.</p>
   <a class="cta" href="#options">Register Now</a>
   <a class="cta line" href="#pay">Payment Options</a>
+  <div class="cdown" id="cd" aria-label="Time until Celebration 120">
+    <div><b id="cdD">&mdash;</b><span>Days</span></div>
+    <div><b id="cdH">&mdash;</b><span>Hours</span></div>
+    <div><b id="cdM">&mdash;</b><span>Min</span></div>
+    <div><b id="cdS">&mdash;</b><span>Sec</span></div>
+  </div>
+  <p style="margin:16px 0 0"><a class="cta line" href="celebration-120.ics">Add to Calendar</a></p>
+
 </header>
 
 <section id="options"><div class="wrap">
@@ -151,7 +206,7 @@ footer a{color:#E6CF95}
       <p>Full page colour $1,200. Members take 50 percent off. <b>Artwork deadline September 18.</b></p>
       <div class="pick"><a href="#form" data-opt="Souvenir Journal ad">Place an Ad</a></div></div>
 
-    <div class="opt"><h3>Presenting Sponsor</h3>
+    <div class="opt"><span class="badge one">One available</span><h3>Presenting Sponsor</h3>
       <div class="price">$120,000</div>
       <p>One available. Commissions a TV documentary with negotiated rights. Two-year visibility
       across Celebration 120 and the 2027 Induction Weekend, eight players and VIP entry at both,
@@ -175,6 +230,22 @@ footer a{color:#E6CF95}
       <p>Two-year visibility, four players and VIP entry at both events, two tee signs, and a
       full page colour ad.</p>
       <div class="pick"><a href="#form" data-opt="Supporting Sponsor — $20,000">Request the Deck</a></div></div>
+
+    
+    <div class="opt"><h3>Hole Sponsor</h3>
+      <div class="price">$2,400 <small>two signs</small></div>
+      <p>Two T-signs on course, both days.</p>
+      <div class="pick"><a href="#form" data-opt="Hole Sponsor">Sponsor a Hole</a></div></div>
+
+    <div class="opt"><h3>Ad &amp; Hole Combo</h3>
+      <div class="price">$2,400 <small>combined</small></div>
+      <p>A full page colour ad plus two T-signs on course, both days.</p>
+      <div class="pick"><a href="#form" data-opt="Ad and Hole Combo">Take the Combo</a></div></div>
+
+    <div class="opt taken"><span class="badge gone">Sold</span><h3>Souvenir Book Sponsor</h3>
+      <div class="price">$7,500</div>
+      <p>Logo on the souvenir journal cover both years, two players and VIP entry, two full page
+      ads and tee signs. This one has gone.</p></div>
 
     <div class="opt hot"><img class="apparel" src="img/c120_hat.jpg" alt="Celebration 120 hat"><h3>Hat</h3>
       <div class="price">$35</div>
@@ -228,6 +299,8 @@ footer a{color:#E6CF95}
       <option>William Powell Sponsor — $80,000</option>
       <option>Harold Dunovant Sponsor — $40,000</option>
       <option>Supporting Sponsor — $20,000</option>
+      <option>Hole Sponsor &mdash; $2,400</option>
+      <option>Ad and Hole Combo &mdash; $2,400</option>
       <option>Apparel: Hat &mdash; $35</option>
       <option>Apparel: Shirt &mdash; $75</option>
       <option>Apparel: Hat and Shirt combo &mdash; $90</option>
@@ -254,7 +327,28 @@ footer a{color:#E6CF95}
       <div><label for="sz2">Sizes for the rest of your group <span style="text-transform:none;letter-spacing:0">(optional)</span></label><input id="sz2" name="sz2" placeholder="e.g. 2 x Large, 1 x XL"></div>
     </div>
     <label for="m">Anything we should know</label>
-    <textarea id="m" name="m" placeholder="Names of your foursome, dietary needs, ad artwork questions, anything at all."></textarea>
+    <textarea id="m" name="m" placeholder="Dietary needs, ad artwork questions, who referred you, anything at all."></textarea>
+
+    <div class="players" id="pls">
+      <h4>Your other three players</h4>
+      <p class="why">A foursome is four people, so we take four names. It puts the right name on
+      each swag bag and each scorecard, and saves a round of phone calls the week of the event.
+      Leave any of them blank if you have not filled the team yet.</p>
+      <div class="pl"><p class="who">Player Two</p>
+        <div class="row"><div><label for="p2n">Name</label><input id="p2n"></div>
+        <div><label for="p2e">Email</label><input id="p2e" type="email"></div></div></div>
+      <div class="pl"><p class="who">Player Three</p>
+        <div class="row"><div><label for="p3n">Name</label><input id="p3n"></div>
+        <div><label for="p3e">Email</label><input id="p3e" type="email"></div></div></div>
+      <div class="pl"><p class="who">Player Four</p>
+        <div class="row"><div><label for="p4n">Name</label><input id="p4n"></div>
+        <div><label for="p4e">Email</label><input id="p4e" type="email"></div></div></div>
+    </div>
+
+    <div class="tot"><span class="lab">Your total</span><span class="amt" id="tot">&mdash;</span>
+      <p class="sub" id="totsub">Choose an option above and this prices itself.</p></div>
+    <div class="bigpay" id="big"><p id="bigmsg"></p></div>
+
     <button class="send" type="submit">Send My Registration</button>
     <p class="orcall">Or reach John Simpson directly &mdash;
       <a href="tel:+14074972233">407.497.2233</a> &nbsp;·&nbsp;
@@ -275,7 +369,7 @@ footer a{color:#E6CF95}
     <div class="pay pending"><h4>Zelle</h4><p>Details to be confirmed by the Hall.</p></div>
     <div class="pay pending"><h4>Cash App</h4><p>Details to be confirmed by the Hall.</p></div>
     <div class="pay"><h4>Donate instead</h4><p>Not registering but want to support the Hall?
-      <a href="https://www.paypal.com/donate/?hosted_button_id=S6DRTREDBDUFS" target="_blank" rel="noopener">Give any amount</a>.
+      Choose an amount and give in one tap.</p><div class="amts"><a href="https://www.paypal.com/donate/?hosted_button_id=S6DRTREDBDUFS&amount=25" target="_blank" rel="noopener">$25</a><a href="https://www.paypal.com/donate/?hosted_button_id=S6DRTREDBDUFS&amount=50" target="_blank" rel="noopener">$50</a><a href="https://www.paypal.com/donate/?hosted_button_id=S6DRTREDBDUFS&amount=100" target="_blank" rel="noopener">$100</a><a href="https://www.paypal.com/donate/?hosted_button_id=S6DRTREDBDUFS&amount=250" target="_blank" rel="noopener">$250</a><a href="https://www.paypal.com/donate/?hosted_button_id=S6DRTREDBDUFS&amount=500" target="_blank" rel="noopener">$500</a><a class="any" href="https://www.paypal.com/donate/?hosted_button_id=S6DRTREDBDUFS" target="_blank" rel="noopener">Any amount</a></div><p style="margin:10px 0 0">
       A donation is separate from a registration.</p></div>
   </div>
 </div></section>
@@ -349,7 +443,7 @@ document.getElementById('reg').addEventListener('submit',function(ev){
     'Shirt size: '+(v('sz')||'not given')+'\n'+
     'Sizes for the group: '+(v('sz2')||'—')+'\n'+
     'Discount code: '+(v('d')||'none')+'\n\n'+
-    'Notes:\n'+(v('m')||'—')+'\n';
+    'Players 2-4:\n'+'  2. '+(v('p2n')||'—')+'  '+(v('p2e')||'')+'\n'+'  3. '+(v('p3n')||'—')+'  '+(v('p3e')||'')+'\n'+'  4. '+(v('p4n')||'—')+'  '+(v('p4e')||'')+'\n\n'+'Notes:\n'+(v('m')||'—')+'\n';
   window.location.href='mailto:jsimpson@blackgolfhof.org'+
     '?cc=hello@in4pargolf.com'+
     '&subject='+encodeURIComponent('Celebration 120 registration — '+v('n'))+
@@ -379,3 +473,78 @@ img[alt^="Celebration 120"]{
               text-transform:uppercase; font-size:15px; display:block; margin-bottom:6px }
 .deadlines p{ margin:0; font-size:1.02rem; line-height:1.6 }
 </style>
+
+<script>
+/* countdown to the public days, October 2 2026, 10:00 Eastern shotgun */
+(function(){
+  var target = new Date('2026-10-02T10:00:00-04:00').getTime();
+  var d=document.getElementById('cdD'), h=document.getElementById('cdH'),
+      m=document.getElementById('cdM'), s=document.getElementById('cdS');
+  if(!d) return;
+  function pad(n){ return n<10 ? '0'+n : ''+n; }
+  function tick(){
+    var left = target - Date.now();
+    if(left <= 0){ document.getElementById('cd').innerHTML =
+      '<div style="min-width:auto;padding:13px 22px"><b style="font-size:22px">Celebration 120 is here</b></div>'; return; }
+    var sec = Math.floor(left/1000);
+    d.textContent = Math.floor(sec/86400);
+    h.textContent = pad(Math.floor(sec%86400/3600));
+    m.textContent = pad(Math.floor(sec%3600/60));
+    s.textContent = pad(sec%60);
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+
+/* running total, per-player capture, and the large-transaction steer */
+(function(){
+  var sel=document.getElementById('w'), qty=document.getElementById('q'),
+      tot=document.getElementById('tot'), sub=document.getElementById('totsub'),
+      pls=document.getElementById('pls'), big=document.getElementById('big'),
+      bigmsg=document.getElementById('bigmsg');
+  if(!sel) return;
+  var LARGE = 20000, LINK = '';
+
+  /* price is read off the option text, so the dropdown stays the single source of truth
+     and nothing can drift out of sync with a separate lookup table */
+  function priceOf(txt){
+    var all = txt.replace(/,/g,'').match(/\$([0-9]+(?:\.[0-9][0-9])?)/g);
+    if(!all) return null;
+    return parseFloat(all[all.length-1].slice(1));
+  }
+  function money(n){ return '$' + n.toLocaleString('en-US'); }
+
+  function paint(){
+    var txt = sel.options[sel.selectedIndex].text;
+    var n = Math.max(1, parseInt(qty.value,10) || 1);
+    var unit = priceOf(txt);
+    var isFour = /^Foursome/.test(txt);
+
+    pls.classList.toggle('on', isFour);
+
+    if(unit === null){
+      tot.textContent = '\u2014';
+      sub.textContent = 'John Simpson will confirm the value with you directly.';
+      big.classList.remove('on');
+      return;
+    }
+    var t = unit * n;
+    tot.textContent = money(t);
+    sub.textContent = n > 1
+      ? n + ' \u00d7 ' + money(unit) + '. Members of the Hall and of the LPGA take 50 percent off entries and journal ads, so enter your code above and John will apply it.'
+      : 'Members of the Hall and of the LPGA take 50 percent off entries and journal ads, so enter your code above and John will apply it.';
+
+    if(t >= LARGE){
+      big.classList.add('on');
+      bigmsg.innerHTML = LINK
+        ? 'At ' + money(t) + ' this is handled direct so the Hall keeps the full amount. <a href="' + LINK + '" target="_blank" rel="noopener"><b>Pay securely here</b></a>, or ask for an invoice.'
+        : '<b>At ' + money(t) + ' this is invoiced direct, not put on a card.</b> Card processing on a gift this size costs the Hall thousands of dollars that should go to the programmes. Send this form and John Simpson will follow up the same day with an invoice and bank details.';
+    } else {
+      big.classList.remove('on');
+    }
+  }
+  sel.addEventListener('change', paint);
+  qty.addEventListener('input', paint);
+  paint();
+})();
+</script>
