@@ -170,6 +170,21 @@ footer a{color:#E6CF95}
 .optin label{font-size:.96rem;line-height:1.55;color:#3D4353;text-transform:none;
   letter-spacing:0;font-weight:400}
 .optin a{color:var(--gold);font-weight:600}
+
+/* ---- added: large gift routing. On a $40,000 gift a card costs the Hall
+   $1,160 and a bank transfer costs $5. That difference is worth a panel. ---- */
+.bigift{border:2px solid var(--gold);background:#FBF6E8;padding:24px 26px;margin:30px 0 0}
+.bigift h3{font-family:Anton,sans-serif;font-size:20px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink);margin:0 0 10px}
+.bigift p{margin:0 0 12px;font-size:1.02rem;line-height:1.62;color:#3D4353}
+.bigift p:last-child{margin-bottom:0}
+.bigift table{border-collapse:collapse;margin:14px 0;font-size:1rem}
+.bigift td{padding:5px 18px 5px 0;font-variant-numeric:tabular-nums}
+.bigift td.g{color:var(--gold);font-weight:700}
+.donate a.big{display:inline-block;padding:15px 26px;background:var(--ink);color:#fff;
+  text-decoration:none;font-family:Anton,sans-serif;font-size:17px;letter-spacing:.09em;
+  text-transform:uppercase;margin:4px 0}
+.donate a.big:hover{background:var(--gold)}
 </style>
 
 <nav><div class="in">
@@ -392,19 +407,58 @@ footer a{color:#E6CF95}
 
 <section id="pay"><div class="wrap">
   <p class="kick">Payment</p>
-  <h2>Five ways to pay. <span class="g">The Hall is the clearinghouse.</span></h2>
-  <p class="lead">Every payment for Celebration 120 goes to the National Black Golf Hall of Fame,
-  a registered 501(c)(3), Tax ID 26-2420132.</p>
+  <h2>Every dollar goes to the Hall. <span class="g">Some routes keep more of it.</span></h2>
+  <p class="lead">All payment for Celebration 120 goes to the <b>National Black Golf Hall of
+  Fame</b>, a registered 501(c)(3), Tax ID 26-2420132. Card checkout is live on this page.
+  For larger amounts, please read the panel below first.</p>
+
   <div class="pays">
+    <div class="pay"><h4>Card &amp; Apple Pay</h4><p>Choose what you are registering for above
+      and pay on the page. Secure checkout by Stripe. Best for entries, gala seats, ads and
+      apparel.</p></div>
+    <div class="pay"><h4>Bank transfer</h4><p>Choose <b>US bank account</b> at checkout.
+      Costs the Hall a few dollars instead of a percentage, so <b>more of your money reaches
+      the programmes</b>. Best for anything over $1,000.</p></div>
+    <div class="pay"><h4>Zelle</h4><p>To <b>jdunovant@pga.com</b><br>
+      Jeff Dunovant, 404.396.5078<br>No processing fee at all.</p></div>
     <div class="pay"><h4>Check</h4><p>Payable to <b>National Black Golf Hall of Fame</b><br>
       1270 Caroline Street, Suite&nbsp;120-431<br>Atlanta, GA 30307</p></div>
-    <div class="pay"><h4>Card &amp; Apple Pay</h4><p>Taken by phone with John Simpson on
-      <a href="tel:+14074972233">407.497.2233</a> while the online checkout is being finalised.</p></div>
-    <div class="pay pending"><h4>Zelle</h4><p>Details to be confirmed by the Hall.</p></div>
-    <div class="pay pending"><h4>Cash App</h4><p>Details to be confirmed by the Hall.</p></div>
-    <div class="pay"><h4>Donate instead</h4><p>Not registering but want to support the Hall?
-      Choose an amount and give in one tap.</p><div class="amts"><a href="https://www.paypal.com/donate/?hosted_button_id=S6DRTREDBDUFS&amount=25" target="_blank" rel="noopener">$25</a><a href="https://www.paypal.com/donate/?hosted_button_id=S6DRTREDBDUFS&amount=50" target="_blank" rel="noopener">$50</a><a href="https://www.paypal.com/donate/?hosted_button_id=S6DRTREDBDUFS&amount=100" target="_blank" rel="noopener">$100</a><a href="https://www.paypal.com/donate/?hosted_button_id=S6DRTREDBDUFS&amount=250" target="_blank" rel="noopener">$250</a><a href="https://www.paypal.com/donate/?hosted_button_id=S6DRTREDBDUFS&amount=500" target="_blank" rel="noopener">$500</a><a class="any" href="https://www.paypal.com/donate/?hosted_button_id=S6DRTREDBDUFS" target="_blank" rel="noopener">Any amount</a></div><p style="margin:10px 0 0">
-      A donation is separate from a registration.</p></div>
+    <div class="pay"><h4>By phone</h4><p>John Simpson will take a registration or a
+      sponsorship over the phone on <a href="tel:+14074972233">407.497.2233</a>.</p></div>
+  </div>
+
+  <div class="bigift">
+    <h3>Sponsors and major gifts, please read</h3>
+    <p><b>Card processing takes a percentage, and on a large gift that percentage is a lot of
+    money the Hall never sees.</b> What the same gift costs, by route:</p>
+    <table>
+      <tr><td><b>Gift</b></td><td><b>By card</b></td><td class="g"><b>By bank transfer or Zelle</b></td></tr>
+      <tr><td>$625</td><td>$18.43</td><td class="g">$5.00 or nothing</td></tr>
+      <tr><td>$2,400</td><td>$69.90</td><td class="g">$5.00 or nothing</td></tr>
+      <tr><td>$20,000</td><td>$580.30</td><td class="g">$5.00 or nothing</td></tr>
+      <tr><td>$120,000</td><td>$3,480.30</td><td class="g">$5.00 or nothing</td></tr>
+    </table>
+    <p>Bank transfer is cheaper than a card at <b>every</b> amount. It costs 0.8 percent up to a
+    ceiling of five dollars, which it reaches at <b>$625</b>. Past that it stays at five dollars
+    however large the gift, while a card keeps taking its percentage. So for a
+    <b>sponsorship at any level</b>, or anything over about six hundred dollars, please use
+    <b>bank transfer, Zelle or a check</b> rather than a card. There is no button for
+    the sponsor tiers on purpose. Choose your level in the form above, send it, and John will
+    follow up the same day with an invoice and bank details.</p>
+    <p style="margin-bottom:0">If a card is genuinely easier for you, use one. <b>We would
+    rather have your support than save the fee.</b> Just call John on
+    <a href="tel:+14074972233">407.497.2233</a> and he will set it up.</p>
+  </div>
+
+  <div class="donate" style="margin:34px 0 0">
+    <h2 style="font-size:clamp(22px,3vw,28px)">Not registering, <span class="g">but want to give?</span></h2>
+    <p class="lead" style="margin-bottom:14px">Give any amount up to $10,000. Choosing
+    <b>US bank account</b> on the next screen costs the Hall five dollars on anything over $625,
+    however large, where a card keeps taking nearly three percent of it.</p>
+    <a class="big" href="https://buy.stripe.com/14A00j2JTciQack9Xz5ZC0k" target="_blank" rel="noopener">Make a Donation</a>
+    <p style="margin:16px 0 0;font-size:.98rem;color:#5A5F6E">Giving more than $10,000, or
+    prefer PayPal? Zelle to <b>jdunovant@pga.com</b>, or call John on 407.497.2233. A donation
+    is separate from a registration, and the Hall is a registered 501(c)(3), Tax ID 26-2420132.</p>
   </div>
 </div></section>
 
