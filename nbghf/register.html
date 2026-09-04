@@ -161,6 +161,15 @@ footer a{color:#E6CF95}
   text-transform:uppercase}
 .paybtn a:hover{background:#1c2a52}
 .paybtn p{margin:9px 0 0;font-size:.94rem;color:#5A5F6E;line-height:1.5;text-align:center}
+
+/* ---- added: A2P 10DLC opt-in. A carrier reviewer opens this page and looks
+   for consent language AT the phone field, not buried in a policy. ---- */
+.optin{margin:16px 0 0;padding:15px 17px;border:1px solid var(--line);background:#fff;
+  display:flex;gap:12px;align-items:flex-start}
+.optin input{width:20px;height:20px;margin:2px 0 0;flex:0 0 20px;accent-color:var(--gold)}
+.optin label{font-size:.96rem;line-height:1.55;color:#3D4353;text-transform:none;
+  letter-spacing:0;font-weight:400}
+.optin a{color:var(--gold);font-weight:600}
 </style>
 
 <nav><div class="in">
@@ -295,6 +304,16 @@ footer a{color:#E6CF95}
       <div><label for="e">Email</label><input id="e" name="e" type="email" required autocomplete="email"></div>
       <div><label for="p">Mobile</label><input id="p" name="p" type="tel" required autocomplete="tel"></div>
     </div>
+    <div class="optin">
+      <input type="checkbox" id="sms" name="sms">
+      <label for="sms">Text me about Celebration 120. By ticking this and giving my mobile
+        number I agree to receive text messages from In4par Golf LLC about this event,
+        including registration confirmations, schedule updates and silent auction alerts.
+        Message frequency varies. Message and data rates may apply. Reply STOP to opt out or
+        HELP for help. See our <a href="sms-terms">Messaging Terms</a> and
+        <a href="privacy">Privacy Policy</a>.</label>
+    </div>
+
     <label for="w">What are you registering for</label>
     <select id="w" name="w">
       <option>Single Player — $1,200 one day</option>
@@ -428,7 +447,7 @@ footer a{color:#E6CF95}
   John Simpson &middot; <a href="tel:+14074972233">407.497.2233</a> &middot;
   <a href="mailto:jsimpson@blackgolfhof.org">jsimpson@blackgolfhof.org</a><br>
   A registered 501(c)(3), Tax ID 26-2420132<br>
-  <a href="index.html">Home</a> &middot; <a href="https://blackgolfhof.org">blackgolfhof.org</a>
+  <a href="privacy">Privacy Policy</a> &middot; <a href="sms-terms">Messaging Terms</a> &middot; <a href="index.html">Home</a> &middot; <a href="https://blackgolfhof.org">blackgolfhof.org</a>
 </div></footer>
 
 <script>
@@ -452,7 +471,7 @@ document.getElementById('reg').addEventListener('submit',function(ev){
     'Name: '+v('n')+'\n'+
     'Organisation: '+v('o')+'\n'+
     'Email: '+v('e')+'\n'+
-    'Mobile: '+v('p')+'\n\n'+
+    'Mobile: '+v('p')+'\n'+'Texts OK: '+(document.getElementById('sms').checked ? 'YES, consented' : 'no')+'\n\n'+
     'Registering for: '+v('w')+'\n'+
     'How many: '+v('q')+'\n'+
     'Shirt size: '+(v('sz')||'not given')+'\n'+
