@@ -151,6 +151,16 @@ footer a{color:#E6CF95}
   text-decoration:none;color:var(--ink);font-weight:700;font-size:.98rem}
 .amts a:hover{border-color:var(--gold);background:var(--cream)}
 .amts a.any{border-style:dashed}
+
+/* ---- added: pay button on the total panel ---- */
+.tot{flex-wrap:wrap}
+.paybtn{display:none;margin:14px 0 0;flex-basis:100%}
+.paybtn.on{display:block}
+.paybtn a{display:block;text-align:center;padding:16px;background:#0A0D14;color:#fff;
+  text-decoration:none;font-family:Anton,sans-serif;font-size:18px;letter-spacing:.1em;
+  text-transform:uppercase}
+.paybtn a:hover{background:#1c2a52}
+.paybtn p{margin:9px 0 0;font-size:.94rem;color:#5A5F6E;line-height:1.5;text-align:center}
 </style>
 
 <nav><div class="in">
@@ -348,6 +358,11 @@ footer a{color:#E6CF95}
     <div class="tot"><span class="lab">Your total</span><span class="amt" id="tot">&mdash;</span>
       <p class="sub" id="totsub">Choose an option above and this prices itself.</p></div>
     <div class="bigpay" id="big"><p id="bigmsg"></p></div>
+    <div class="paybtn" id="paybox">
+      <a id="paylink" href="#" target="_blank" rel="noopener">Pay Now</a>
+      <p id="paynote"></p>
+    </div>
+
 
     <button class="send" type="submit">Send My Registration</button>
     <p class="orcall">Or reach John Simpson directly &mdash;
@@ -545,6 +560,28 @@ img[alt^="Celebration 120"]{
   }
   sel.addEventListener('change', paint);
   qty.addEventListener('input', paint);
+  paint();
+})();
+</script>
+
+<script>
+/* Stripe Payment Links, one per item. Sponsor tiers are deliberately absent:
+   card fees on a $120,000 gift cost the Hall over $3,000, so those are invoiced. */
+(function(){
+  var PAY = {"Single Player — $1,200 one day": "https://buy.stripe.com/14AdR2f5ieNW0AL4cV6AM01", "Single Player — both days, $2,400": "https://buy.stripe.com/3cI4gse1ebBKbfpeRz6AM02", "Foursome — $2,400 one day": "https://buy.stripe.com/14AdR20ao0X683daBj6AM03", "Foursome — both days, $4,800": "https://buy.stripe.com/4gM8wI0ao0X62IT38R6AM04", "Closing Gala seat — $150": "https://buy.stripe.com/9B6cMY8GU9tCcjt10J6AM05", "Closing Gala table of eight — $2,000": "https://buy.stripe.com/8x24gs6yM35e1EP10J6AM06", "Souvenir Journal — half page, $800": "https://buy.stripe.com/9B65kw0ao8py1EPgZH6AM07", "Souvenir Journal — full page colour, $1,200": "https://buy.stripe.com/28EaEQg9maxG4R19xf6AM08", "Hole Sponsor — $2,400": "https://buy.stripe.com/4gM5kwbT6eNW6Z94cV6AM09", "Ad and Hole Combo — $2,400": "https://buy.stripe.com/3cIeV62iwgW46Z95gZ6AM0a", "Apparel: Hat — $35": "https://buy.stripe.com/8x2cMY1es9tC1EPbFn6AM0b", "Apparel: Shirt — $75": "https://buy.stripe.com/5kQ4gse1e7lucjt4cV6AM0c", "Apparel: Hat and Shirt combo — $90": "https://buy.stripe.com/bJe28k1esbBKcjt6l36AM0d"};
+  var sel=document.getElementById('w'), box=document.getElementById('paybox'),
+      a=document.getElementById('paylink'), note=document.getElementById('paynote');
+  if(!sel||!box) return;
+  function paint(){
+    var t=sel.options[sel.selectedIndex].text, url=PAY[t];
+    if(url){
+      a.href=url; box.classList.add('on');
+      note.textContent='Secure checkout by Stripe. Send the form first so John knows who you are, '
+        + 'then pay. Card, Apple Pay and bank transfer accepted.';
+    } else { box.classList.remove('on'); }
+  }
+  sel.addEventListener('change', paint);
+  document.getElementById('q').addEventListener('input', paint);
   paint();
 })();
 </script>
