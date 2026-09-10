@@ -134,12 +134,12 @@ b{color:var(--ink)}
 <div class="top">
   <p class="kick">Celebration 120 &middot; National Black Golf Hall of Fame</p>
   <h1>Stripe Setup Checklist</h1>
-  <p>Five things to finish so the Hall can take registration payments online. Roughly twenty minutes in total. Tick them off as you go and the page will remember where you got to.</p>
+  <p>The account is live and has already taken a real payment. Three things are left to finish it off. About ten minutes in total. Tick them off as you go and the page will remember where you got to.</p>
 </div>
 
 <div class="prog"><div class="in">
   <div class="bar"><i id="fill"></i></div>
-  <b id="count">0 of 5 done</b>
+  <b id="count">0 of 3 done</b>
 </div></div>
 
 <main>
@@ -150,26 +150,15 @@ b{color:var(--ink)}
   <p>Nothing on this list can lose money or break anything. The worst that happens is you tick something twice.</p>
 </div>
 
-<!-- 1 -->
-<div class="task" id="t1">
-  <div class="hd"><div class="num">1</div><h2>Send one dollar to check it works</h2></div>
-  <div class="bd">
-    <p>Do this one first. It takes a minute and it tells us the account is switched on properly. Until this passes, we cannot email the invitations.</p>
-    <p><a class="lnk" href="https://buy.stripe.com/cNieVd2JT6Yw7080mZ5ZC0d" target="_blank" rel="noopener">Open the $1 test page</a></p>
-    <ol>
-      <li>Open that link on your phone or computer.</li>
-      <li>Enter your email and phone number.</li>
-      <li>Pay the $1 with a real card. It is a real charge, and Ian will refund it.</li>
-      <li>You should see a thank-you message saying the system is live.</li>
-    </ol>
-    <p><b>Then tell Ian it went through.</b> If you get an error instead, send him a photo of the error message. That is the useful bit.</p>
-  </div>
-  <label class="tick"><input type="checkbox" data-k="1"><span>Done</span></label>
+<div class="intro" style="border-left:4px solid var(--ok)">
+  <p><b>Two things that were on this list are already finished, so please skip them.</b></p>
+  <p><b>The one dollar test passed.</b> A real card payment went through the Hall's account on September 4 and settled correctly, so the account is switched on and working. There is nothing left to test and no reason to send another dollar.</p>
+  <p><b>The member half price no longer needs a discount code.</b> Rather than have members type a code, each member rate now has its own payment link built at the correct price, and those are the links printed in the invitation letters. So there is no coupon to create.</p>
 </div>
 
-<!-- 2 -->
-<div class="task" id="t2">
-  <div class="hd"><div class="num">2</div><h2>Ask Stripe for the charity discount</h2></div>
+<!-- 1 -->
+<div class="task" id="t1">
+  <div class="hd"><div class="num">1</div><h2>Ask Stripe for the charity discount</h2></div>
   <div class="bd">
     <p>Stripe charges charities less than normal businesses, but only if you ask. <b>This is the one that saves the Hall the most money</b>, so it is worth doing properly.</p>
     <ol>
@@ -187,54 +176,27 @@ EIN / Tax ID: 26-2420132
 Please let us know what documentation you need. Thank you.</div>
     <p class="note">Stripe usually replies by email within a day or two. Forward whatever they send to Ian.</p>
   </div>
-  <label class="tick"><input type="checkbox" data-k="2"><span>Done</span></label>
+  <label class="tick"><input type="checkbox" data-k="1"><span>Done</span></label>
 </div>
 
-<!-- 3 -->
-<div class="task" id="t3">
-  <div class="hd"><div class="num">3</div><h2>Create the member discount code</h2></div>
-  <div class="bd">
-    <p>The invitation letters promise Advisory Committee, LPGA, PGA and Hall of Fame members half off. This creates the code that makes that work. Without it, they have no way to claim it.</p>
-    <p><b>Part one, the discount.</b></p>
-    <ol>
-      <li>Go to <span class="path">Product catalog</span> in the left menu.</li>
-      <li>Click the <span class="path">Coupons</span> tab along the top.</li>
-      <li>Click <span class="path">Create coupon</span>.</li>
-      <li>Choose <b>Percentage discount</b> and type <b>50</b>.</li>
-      <li>Where it asks how long it lasts, choose <b>Once</b>.</li>
-      <li>Name it <b>Member 50 percent</b>. Save it.</li>
-    </ol>
-    <p><b>Part two, the code people type.</b></p>
-    <ol>
-      <li>Open the coupon you just made.</li>
-      <li>Find <span class="path">Promotion codes</span> and click to add one.</li>
-      <li>Type the code exactly: <b>MEMBER50</b></li>
-      <li>Save.</li>
-    </ol>
-    <p class="note">Capital letters, no space. It has to match the letters going out.</p>
-  </div>
-  <label class="tick"><input type="checkbox" data-k="3"><span>Done</span></label>
-</div>
-
-<!-- 4 -->
-<div class="task" id="t4">
-  <div class="hd"><div class="num">4</div><h2>Switch on Apple Pay</h2></div>
+<!-- 2 -->
+<div class="task" id="t2">
+  <div class="hd"><div class="num">2</div><h2>Switch on Apple Pay</h2></div>
   <div class="bd">
     <p>Most people will register from their phone. Apple Pay lets them pay with a fingerprint instead of typing a card number, and far more of them finish.</p>
     <ol>
       <li>Click the <span class="path">Settings</span> gear, top right.</li>
       <li>Find <span class="path">Payment methods</span>. Or type <b>payment methods</b> in the search box at the top.</li>
       <li>Turn on <b>Apple Pay</b>.</li>
-      <li>Turn on <b>Link</b> while you are there. It remembers a card so returning people pay in one tap.</li>
     </ol>
-    <p class="note">Card and bank transfer are already working, so this is an improvement rather than a fix. If either one is already on, just tick this off.</p>
+    <p class="note">Card, bank transfer and Link are already working. Link is confirmed on, because the test payment came through it. So this step is an improvement rather than a fix. If Apple Pay is already switched on, just tick this off.</p>
   </div>
-  <label class="tick"><input type="checkbox" data-k="4"><span>Done</span></label>
+  <label class="tick"><input type="checkbox" data-k="2"><span>Done</span></label>
 </div>
 
-<!-- 5 -->
-<div class="task" id="t5">
-  <div class="hd"><div class="num">5</div><h2>Set the name on card statements, and lock the account</h2></div>
+<!-- 3 -->
+<div class="task" id="t3">
+  <div class="hd"><div class="num">3</div><h2>Set the name on card statements, and lock the account</h2></div>
   <div class="bd">
     <p>Two small things on the same trip through Settings.</p>
     <p><b>First, the name people see on their bank statement.</b></p>
@@ -252,7 +214,7 @@ Please let us know what documentation you need. Thank you.</div>
     </ol>
     <p class="note">This account will hold real donations. The recovery codes are how you get back in if you lose your phone.</p>
   </div>
-  <label class="tick"><input type="checkbox" data-k="5"><span>Done</span></label>
+  <label class="tick"><input type="checkbox" data-k="3"><span>Done</span></label>
 </div>
 
 <div class="fin">
@@ -268,7 +230,7 @@ Please let us know what documentation you need. Thank you.</div>
   var boxes = Array.prototype.slice.call(document.querySelectorAll('.tick input'));
   var fill = document.getElementById('fill');
   var count = document.getElementById('count');
-  var KEY = 'nbghf-stripe-checklist';
+  var KEY = 'nbghf-stripe-checklist-v2';
 
   function load(){
     try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; }
