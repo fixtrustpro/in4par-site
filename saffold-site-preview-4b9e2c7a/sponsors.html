@@ -34,7 +34,7 @@
  const menu=document.querySelector('.menu-toggle'), nav=document.querySelector('.navigation');
  menu.addEventListener('click',()=>{const expanded=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(expanded));nav.classList.toggle('open',expanded);});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.focus();}});
- document.querySelectorAll('form.demo-form').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();const status=form.querySelector('[role="status"]');status.hidden=false;status.textContent='Thank you for trying this form. This is a preview: your details stayed on this page and were not sent or saved. To reach the Foundation, call 863-812-0845 or email rcssf1112@outlook.com.';status.focus();}));
+ document.querySelectorAll('form.demo-form').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();const status=form.querySelector('[role="status"]');status.hidden=false;status.textContent='Thank you for trying this form. This is a preview: your details and any selected file stayed on this page. Nothing was uploaded, sent or saved. To reach the Foundation, call 863-812-0845 or email rcssf1112@outlook.com.';status.focus();}));
  // The silent photo film loads only when motion is welcome or explicitly requested.
  const film=document.querySelector('#saffold-tribute');
  if(film){
@@ -69,7 +69,8 @@
  }
  const search=document.querySelector('#event-search'), month=document.querySelector('#event-month'), filters=document.querySelectorAll('[data-filter]');
  let region='all';
- function filterEvents(){const q=search.value.trim().toLowerCase();let count=0;document.querySelectorAll('.event-row').forEach(row=>{const show=(region==='all'||row.dataset.region===region)&&(!month.value||row.dataset.month===month.value)&&row.textContent.toLowerCase().includes(q);row.hidden=!show;if(show)count++;});document.querySelector('#event-count').textContent=count+' '+(count===1?'listing':'listings');document.querySelector('#empty-events').hidden=count!==0;}
+ function filterEvents(){const q=search.value.trim().toLowerCase();let count=0;document.querySelectorAll('.event-row').forEach(row=>{const show=(region==='all'||row.dataset.region===region)&&(!month.value||row.dataset.month===month.value)&&row.textContent.toLowerCase().includes(q);row.hidden=!show;const tile=document.getElementById('flyer-'+row.dataset.eventId);if(tile)tile.hidden=!show;if(show)count++;});document.querySelector('#event-count').textContent=count+' '+(count===1?'event':'events')+' · wall and list';document.querySelector('#empty-events').hidden=count!==0;}
+
  if(search){search.addEventListener('input',filterEvents);month.addEventListener('change',filterEvents);filters.forEach(b=>b.addEventListener('click',()=>{region=b.dataset.filter;filters.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));filterEvents();}));document.querySelector('#clear-filters').addEventListener('click',()=>{search.value='';month.value='';region='all';filters.forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.filter==='all')));filterEvents();});filterEvents();}
 })();
 </script></body></html>
