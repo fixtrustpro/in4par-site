@@ -93,6 +93,13 @@
   update();controls();
   if(!motion.matches&&!(navigator.connection&&navigator.connection.saveData)){wanted=true;play();}
  }
+
+ const hf=document.querySelector('.hero-film');
+ if(hf){const v=hf.querySelector('.film'), mt=hf.querySelector('.motion-toggle');
+  if(v){v.addEventListener('canplay',()=>{if(!hf.classList.contains('motion-off'))hf.classList.add('film-ready');});v.addEventListener('error',()=>hf.classList.remove('film-ready'));if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();}}
+  let off=false;try{off=localStorage.getItem('saffold-motion')==='off';}catch(e){}
+  function apply(){hf.classList.toggle('motion-off',off);mt.textContent=off?'Motion off':'Motion on';mt.setAttribute('aria-pressed',String(!off));if(v){if(off){v.pause();hf.classList.remove('film-ready');}else{v.play().then(()=>hf.classList.add('film-ready')).catch(()=>{});}}}
+  mt.addEventListener('click',()=>{off=!off;try{localStorage.setItem('saffold-motion',off?'off':'on');}catch(e){}apply();});apply();}
  const search=document.querySelector('#event-search'), month=document.querySelector('#event-month'), filters=document.querySelectorAll('[data-filter]');
  let region='all';
  function filterEvents(){const q=search.value.trim().toLowerCase();let count=0;document.querySelectorAll('.event-row').forEach(row=>{const show=(region==='all'||row.dataset.region===region)&&(!month.value||row.dataset.month===month.value)&&row.textContent.toLowerCase().includes(q);row.hidden=!show;const tile=document.getElementById('flyer-'+row.dataset.eventId);if(tile)tile.hidden=!show;if(show)count++;});document.querySelector('#event-count').textContent=count+' '+(count===1?'event':'events')+' · wall and list';document.querySelector('#empty-events').hidden=count!==0;}

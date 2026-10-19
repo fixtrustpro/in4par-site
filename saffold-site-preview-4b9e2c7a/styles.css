@@ -42,3 +42,30 @@
 @media print{body:has(.annual-calendar){background:white!important;color:black!important}body:has(.annual-calendar)>header,body:has(.annual-calendar)>footer,body:has(.annual-calendar) .site-header,body:has(.annual-calendar) .site-footer,.print-toolbar{display:none!important}.annual-calendar{page:ttime-calendar;border:0;margin:0;padding:0;max-width:none;width:auto;color:black!important}.annual-heading{gap:16px}.annual-heading>img,.annual-heading>img:last-child{display:block;width:55px;height:60px}.annual-heading h1{font-size:34pt}.annual-heading p{font-size:9pt}.annual-heading .eyebrow{font-size:7pt}.annual-note{font-size:8pt;padding:6px 0;margin:8px 0}.annual-months{grid-template-columns:repeat(3,minmax(0,1fr))}.calendar-month{min-height:92px;padding:8px}.calendar-month h2{font-size:15pt;margin:0 0 6px}.calendar-month li{font-size:8pt;grid-template-columns:64px 1fr;margin-bottom:5px}.calendar-month li small{margin-top:1px}.month-open{font-size:8pt}.annual-undated{font-size:8pt;padding:7px 0}.annual-footer{flex-direction:row;font-size:8pt;padding-top:7px}.annual-calendar a:after{content:none!important}}
 
 .flyer-designed h4,.flyer-add h4{font-family:var(--serif);font-weight:500}.flyer-tile:hover{color:inherit}.flyer-featured:hover{color:white}
+
+/* ---- home hero: the film runs behind the headline ---- */
+.hero-film{position:relative;isolation:isolate;overflow:hidden;background:var(--deep);color:#fffdf7;min-height:min(86vh,760px);display:flex;align-items:flex-end}
+.hero-film .reel{position:absolute;inset:0;overflow:hidden;background:var(--deep)}
+.hero-film .fr{position:absolute;inset:-4%;background-size:cover;background-repeat:no-repeat;opacity:0;animation:saffold-reel 24s linear infinite;will-change:opacity,transform}
+.hero-film .fr:nth-child(1){animation-delay:0s}.hero-film .fr:nth-child(2){animation-delay:6s}.hero-film .fr:nth-child(3){animation-delay:12s}.hero-film .fr:nth-child(4){animation-delay:18s}
+@keyframes saffold-reel{0%{opacity:0;transform:scale(1.02) translate3d(0,0,0)}4%{opacity:1}25%{opacity:1}31%{opacity:0}100%{opacity:0;transform:scale(1.13) translate3d(-1.6%,-1.2%,0)}}
+.hero-film .film{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.hero-film.film-ready .film{opacity:1}
+.hero-film .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,46,37,.15) 0%,rgba(17,46,37,.35) 45%,rgba(17,46,37,.88) 100%)}
+.hero-film .hero-in{position:relative;z-index:2;padding-block:120px 56px}
+.hero-film .eyebrow{color:var(--gold)}
+.hero-film h1{color:#fffdf7;max-width:12ch;margin-bottom:22px}
+.hero-film h1 em{color:var(--gold);font-style:italic}
+.hero-film .hero-dedication{color:#fffdf7;font-weight:700;margin:0 0 10px}
+.hero-film .hero-dedication span{display:block;font-weight:500;color:rgba(255,253,247,.78);font-size:13px;letter-spacing:.04em}
+.hero-film .hero-lede{color:rgba(255,253,247,.86);max-width:52ch;font-size:16px;margin:0 0 26px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-film .button.gold{background:var(--gold);color:#17201a;border-color:var(--gold)}
+.hero-film .button.ghost{background:transparent;color:#fffdf7;border:1px solid rgba(255,253,247,.6)}
+.hero-film-link{display:inline-block;margin-top:22px;color:rgba(255,253,247,.85);font-size:14px;text-decoration-color:var(--gold)}
+.motion-toggle{position:absolute;right:16px;top:calc(env(safe-area-inset-top,0px) + 16px);z-index:3;font:600 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#fffdf7;background:rgba(17,46,37,.55);border:1px solid rgba(255,253,247,.4);padding:9px 12px;border-radius:999px;cursor:pointer}
+.hero-film.motion-off .fr{animation-play-state:paused;opacity:1}
+.hero-film.motion-off .fr:not(:first-child){display:none}
+.hero-film.motion-off .film{display:none}
+@media (prefers-reduced-motion:reduce){.hero-film .fr{animation:none;opacity:1}.hero-film .fr:not(:first-child){display:none}.hero-film .film{display:none}}
+@media (max-width:700px){.hero-film{min-height:78vh}.hero-film .hero-in{padding-block:96px 40px}.hero-film h1{max-width:10ch}.hero-actions .button{width:100%;text-align:center}}
