@@ -46,9 +46,9 @@
 /* ---- home hero: the film runs behind the headline ---- */
 .hero-film{position:relative;isolation:isolate;overflow:hidden;background:var(--deep);color:#fffdf7;min-height:min(86vh,760px);display:flex;align-items:flex-end}
 .hero-film .reel{position:absolute;inset:0;overflow:hidden;background:var(--deep)}
-.hero-film .fr{position:absolute;inset:-4%;background-size:cover;background-repeat:no-repeat;opacity:0;animation:saffold-reel 24s linear infinite;will-change:opacity,transform}
+.hero-film .fr{position:absolute;inset:0;background-size:cover;background-repeat:no-repeat;opacity:0;animation:saffold-reel 24s linear infinite;will-change:opacity,transform}
 .hero-film .fr:nth-child(1){animation-delay:0s}.hero-film .fr:nth-child(2){animation-delay:6s}.hero-film .fr:nth-child(3){animation-delay:12s}.hero-film .fr:nth-child(4){animation-delay:18s}
-@keyframes saffold-reel{0%{opacity:0;transform:scale(1.02) translate3d(0,0,0)}4%{opacity:1}25%{opacity:1}31%{opacity:0}100%{opacity:0;transform:scale(1.13) translate3d(-1.6%,-1.2%,0)}}
+@keyframes saffold-reel{0%{opacity:0;transform:scale(1.02) translate3d(0,0,0)}4%{opacity:1}25%{opacity:1}31%{opacity:0}100%{opacity:0;transform:scale(1.06) translate3d(-0.8%,-0.6%,0)}}
 .hero-film .film{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
 .hero-film.film-ready .film{opacity:1}
 .hero-film .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,46,37,.15) 0%,rgba(17,46,37,.35) 45%,rgba(17,46,37,.88) 100%)}
