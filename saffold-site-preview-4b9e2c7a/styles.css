@@ -69,3 +69,11 @@
 .hero-film.motion-off .film{display:none}
 @media (prefers-reduced-motion:reduce){.hero-film .fr{animation:none;opacity:1}.hero-film .fr:not(:first-child){display:none}.hero-film .film{display:none}}
 @media (max-width:700px){.hero-film{min-height:78vh}.hero-film .hero-in{padding-block:96px 40px}.hero-film h1{max-width:10ch}.hero-actions .button{width:100%;text-align:center}}
+
+/* family album (About) */
+.album{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+.album figure{margin:0;background:var(--deep);border-radius:4px;overflow:hidden}
+.album img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 35%}
+.album figcaption{padding:12px 14px 14px;font-size:13px;line-height:1.5;color:rgba(255,253,247,.86);font-family:"Manrope",system-ui,sans-serif}
+@media (max-width:900px){.album{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.album{grid-template-columns:1fr}}
