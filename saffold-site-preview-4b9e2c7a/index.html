@@ -47,7 +47,7 @@
 <section class="wrap section ttime-teaser"><div><p class="eyebrow">Introducing T-Time · Early 2027</p><h2>More of Florida’s golf.<br><em>In one place.</em></h2><p>A calendar of tournaments hosted and supported by African American golfers. Presented by the Foundation.</p><a class="button" href="t-time.html">Explore the calendar preview ↗</a></div><div class="teaser-ticket"><span class="wordmark">T<span>•</span>Time</span><p>Florida tournaments.<br>Community connections.</p><div class="ticket-rule"></div><small>FIND AN EVENT &nbsp; / &nbsp; SHARE AN EVENT</small></div></section>
 
 </main>
-<footer class="footer"><div class="wrap"><div class="footer-top"><div class="footer-mission"><p class="eyebrow">The Robert C. Saffold Sr. Foundation</p><p class="footer-motto">Preparing for the future by providing an opportunity today.</p><p>Supporting disadvantaged youth in Highlands County.</p></div><div><h2>Stay connected</h2><a href="tel:8638120845">863-812-0845</a><a href="mailto:rcssf1112@outlook.com">rcssf1112@outlook.com</a><p>P.O. Box 982<br>Avon Park, FL 33826</p></div><div><h2>Be part of the story</h2><a href="tournament.html">Play the tournament</a><a href="volunteer.html">Offer your time</a><a href="donate.html">Support the Foundation</a><a href="t-time.html">Explore T-Time</a></div></div><div class="footer-bottom"><span>© 2026 Robert C. Saffold Sr. Foundation, Inc.<br>501(c)(3) nonprofit · EIN 92-1175662</span><span class="credit"><img src="assets/in4par-crest.png" width="28" height="28" alt="">Site by In4Par</span></div></div></footer>
+<footer class="footer"><div class="wrap"><div class="footer-top"><div class="footer-mission"><p class="eyebrow">The Robert C. Saffold Sr. Foundation</p><p class="footer-motto">Preparing for the future by providing an opportunity today.</p><p>Supporting disadvantaged youth in Highlands County.</p></div><div><h2>Stay connected</h2><a href="tel:8638120845">863-812-0845</a><a href="mailto:rcssf1112@outlook.com">rcssf1112@outlook.com</a><p>P.O. Box 982<br>Avon Park, FL 33826</p></div><div><h2>Be part of the story</h2><a href="tournament.html">Play the tournament</a><a href="volunteer.html">Offer your time</a><a href="donate.html">Support the Foundation</a><a href="t-time.html">Explore T-Time</a></div></div><div class="footer-bottom"><span>© 2026 Robert C. Saffold Sr. Foundation, Inc.<br>501(c)(3) nonprofit</span><span class="credit"><img src="assets/in4par-crest.png" width="28" height="28" alt="">Site by In4Par</span></div></div></footer>
 <script>
 (function(){
  const root=document.documentElement, theme=document.querySelector('.theme-toggle');
@@ -94,8 +94,10 @@
  const hf=document.querySelector('.hero-film');
  if(hf){const v=hf.querySelector('.film'), mt=hf.querySelector('.motion-toggle');
   if(v){v.addEventListener('canplay',()=>{if(!hf.classList.contains('motion-off'))hf.classList.add('film-ready');});v.addEventListener('error',()=>hf.classList.remove('film-ready'));if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();}}
-  let off=false;try{off=localStorage.getItem('saffold-motion')==='off';}catch(e){}
+  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  let off=reducedMotion.matches;try{off=off||localStorage.getItem('saffold-motion')==='off';}catch(e){}
   function apply(){hf.classList.toggle('motion-off',off);mt.textContent=off?'Motion off':'Motion on';mt.setAttribute('aria-pressed',String(!off));if(v){if(off){v.pause();hf.classList.remove('film-ready');}else{v.play().then(()=>hf.classList.add('film-ready')).catch(()=>{});}}}
+  reducedMotion.addEventListener('change',e=>{if(e.matches){off=true;apply();}});
   mt.addEventListener('click',()=>{off=!off;try{localStorage.setItem('saffold-motion',off?'off':'on');}catch(e){}apply();});apply();}
  const search=document.querySelector('#event-search'), month=document.querySelector('#event-month'), filters=document.querySelectorAll('[data-filter]');
  let region='all';
