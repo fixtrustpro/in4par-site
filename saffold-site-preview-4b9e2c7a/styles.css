@@ -44,21 +44,25 @@
 .flyer-designed h4,.flyer-add h4{font-family:var(--serif);font-weight:500}.flyer-tile:hover{color:inherit}.flyer-featured:hover{color:white}
 
 /* ---- home hero: the film runs behind the headline ---- */
-.hero-film{position:relative;isolation:isolate;overflow:hidden;background:var(--deep);color:#fffdf7;min-height:min(86vh,760px);display:flex;align-items:flex-end}
+.hero-film{position:relative;isolation:isolate;overflow:hidden;background:var(--deep);color:#fffdf7;min-height:min(82vh,720px);display:flex;align-items:center}
 .hero-film .reel{position:absolute;inset:0;overflow:hidden;background:var(--deep)}
 .hero-film .fr{position:absolute;inset:0;background-size:cover;background-repeat:no-repeat;opacity:0;animation:saffold-reel 24s linear infinite;will-change:opacity,transform}
 .hero-film .fr:nth-child(1){animation-delay:0s}.hero-film .fr:nth-child(2){animation-delay:6s}.hero-film .fr:nth-child(3){animation-delay:12s}.hero-film .fr:nth-child(4){animation-delay:18s}
 @keyframes saffold-reel{0%{opacity:0;transform:scale(1.02) translate3d(0,0,0)}4%{opacity:1}25%{opacity:1}31%{opacity:0}100%{opacity:0;transform:scale(1.06) translate3d(-0.8%,-0.6%,0)}}
 .hero-film .film{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
 .hero-film.film-ready .film{opacity:1}
-.hero-film .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,46,37,.15) 0%,rgba(17,46,37,.35) 45%,rgba(17,46,37,.88) 100%)}
-.hero-film .hero-in{position:relative;z-index:2;padding-block:120px 56px}
+.hero-film .scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,46,37,.96) 0%,rgba(17,46,37,.86) 32%,rgba(17,46,37,.5) 62%,rgba(17,46,37,.28) 100%),linear-gradient(180deg,rgba(17,46,37,.25) 0%,rgba(17,46,37,0) 35%,rgba(17,46,37,.8) 100%)}
+.hero-film .hero-in{position:relative;z-index:2;padding-block:64px 56px;max-width:1180px}
+.hero-seal{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.hero-seal img{width:64px;height:64px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px rgba(216,188,114,.55)}
+.hero-seal .eyebrow{margin:0}
+.hero-date{font-family:"Manrope",system-ui,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(15px,1.45vw,21px);color:#fffdf7;margin:0 0 18px}
 .hero-film .eyebrow{color:var(--gold)}
-.hero-film h1{color:#fffdf7;max-width:12ch;margin-bottom:22px}
+.hero-film h1{color:#fffdf7;max-width:16ch;margin-bottom:18px;font-size:clamp(40px,5.2vw,74px);line-height:1.02}
 .hero-film h1 em{color:var(--gold);font-style:italic}
 .hero-film .hero-dedication{color:#fffdf7;font-weight:700;margin:0 0 10px}
 .hero-film .hero-dedication span{display:block;font-weight:500;color:rgba(255,253,247,.78);font-size:13px;letter-spacing:.04em}
-.hero-film .hero-lede{color:rgba(255,253,247,.86);max-width:52ch;font-size:16px;margin:0 0 26px}
+.hero-film .hero-lede{color:rgba(255,253,247,.88);max-width:54ch;font-size:17px;line-height:1.55;margin:0 0 28px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .hero-film .button.gold{background:var(--gold);color:#17201a;border-color:var(--gold)}
 .hero-film .button.ghost{background:transparent;color:#fffdf7;border:1px solid rgba(255,253,247,.6)}
@@ -68,7 +72,7 @@
 .hero-film.motion-off .fr:not(:first-child){display:none}
 .hero-film.motion-off .film{display:none}
 @media (prefers-reduced-motion:reduce){.hero-film .fr{animation:none;opacity:1}.hero-film .fr:not(:first-child){display:none}.hero-film .film{display:none}}
-@media (max-width:700px){.hero-film{min-height:78vh}.hero-film .hero-in{padding-block:96px 40px}.hero-film h1{max-width:10ch}.hero-actions .button{width:100%;text-align:center}}
+@media (max-width:700px){.hero-film{min-height:84vh}.hero-film .scrim{background:linear-gradient(180deg,rgba(17,46,37,.55) 0%,rgba(17,46,37,.72) 45%,rgba(17,46,37,.95) 100%)}.hero-film .hero-in{padding-block:40px 36px}.hero-film h1{max-width:12ch;font-size:clamp(34px,10vw,44px)}.hero-actions .button{width:100%;text-align:center}}
 
 /* family album (About) */
 .album{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
