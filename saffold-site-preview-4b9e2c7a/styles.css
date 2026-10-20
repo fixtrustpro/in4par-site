@@ -81,3 +81,11 @@
 .album figcaption{padding:12px 14px 14px;font-size:13px;line-height:1.5;color:rgba(255,253,247,.86);font-family:"Manrope",system-ui,sans-serif}
 @media (max-width:900px){.album{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.album{grid-template-columns:1fr}}
+
+/* hero still frames: the same composed plates as the loop, so the page never shows one blown-up photo */
+.hero-film .fr:nth-child(1){background-image:url(assets/hero-frames/wide-0.jpg)}
+.hero-film .fr:nth-child(2){background-image:url(assets/hero-frames/wide-1.jpg)}
+.hero-film .fr:nth-child(3){background-image:url(assets/hero-frames/wide-2.jpg)}
+.hero-film .fr:nth-child(4){background-image:url(assets/hero-frames/wide-3.jpg)}
+@media (max-aspect-ratio:1/1){.hero-film .fr:nth-child(1){background-image:url(assets/hero-frames/vert-0.jpg)}.hero-film .fr:nth-child(2){background-image:url(assets/hero-frames/vert-1.jpg)}.hero-film .fr:nth-child(3){background-image:url(assets/hero-frames/vert-2.jpg)}.hero-film .fr:nth-child(4){background-image:url(assets/hero-frames/vert-3.jpg)}}
+.hero-film .fr{filter:saturate(.6) brightness(.9)}
