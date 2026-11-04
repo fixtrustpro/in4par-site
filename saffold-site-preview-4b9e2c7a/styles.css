@@ -126,3 +126,6 @@
 @media print{.page-jump{display:none}}
 
 .mother-photos h2{margin:14px 0 30px}.mother-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}.mother-grid .portrait-frame img{aspect-ratio:auto;height:auto}@media(max-width:760px){.mother-grid{grid-template-columns:1fr;gap:18px}}
+
+.footer-credit{margin:-4px 0 10px;font-size:14px;font-style:italic;opacity:.85}.mother-motto{max-width:680px;margin:-12px 0 28px;font-size:18px}
+.mission-statement>p:not(.eyebrow){font-size:16px;color:var(--ink,inherit)}
